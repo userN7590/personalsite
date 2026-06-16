@@ -1,0 +1,86 @@
+import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+
+const RESUME = '/assets/Filip-Stopyra-Resume.pdf'
+
+const NAV = [
+  { to: '/projects', label: 'projects' },
+  { to: '/experience', label: 'experience' },
+  { to: '/changelog', label: 'changelog' },
+  { to: '/collections', label: 'collections' },
+  { to: '/contact', label: 'contact' },
+]
+
+// Heritage flags (Polish + American) — flags only, no text
+function Flags() {
+  return (
+    <p className="flags" aria-label="Polish and American">
+      <svg className="flag flag-pl" viewBox="0 0 32 20" role="img" aria-label="Poland">
+        <rect width="32" height="10" fill="#ffffff" />
+        <rect y="10" width="32" height="10" fill="#d4213d" />
+      </svg>
+      <svg className="flag flag-us" viewBox="0 0 38 20" role="img" aria-label="United States">
+        <rect width="38" height="20" fill="#b22234" />
+        <g fill="#ffffff">
+          {[1.538, 4.615, 7.692, 10.769, 13.846, 16.923].map((y) => (
+            <rect key={y} y={y} width="38" height="1.538" />
+          ))}
+        </g>
+        <rect width="15.2" height="10.769" fill="#3c3b6e" />
+        <g fill="#ffffff">
+          {[1.7, 3.4, 5.1, 6.8, 8.5].map((cy, row) =>
+            (row % 2 === 0 ? [2.5, 6.3, 10.1, 13.9] : [4.4, 8.2, 12]).map((cx) => (
+              <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r=".7" />
+            ))
+          )}
+        </g>
+      </svg>
+    </p>
+  )
+}
+
+export default function SiteHeader({ defaultIntroOpen = false }) {
+  const [introOpen, setIntroOpen] = useState(defaultIntroOpen)
+
+  return (
+    <header className={`topid${introOpen ? '' : ' intro-closed'}`}>
+      <Link className="name" to="/">Filip Stopyra</Link>
+      <p className="tagline">Software developer. Cleveland, Ohio.</p>
+      <Flags />
+      <p className="topemail">stopyrafilip1@gmail.com</p>
+      <p className="toplinks">
+        <a href="https://github.com/userN7590">github</a> ·{' '}
+        <a href="https://www.linkedin.com/in/filipstopyra">linkedin</a> ·{' '}
+        <a href={RESUME}>resume (pdf)</a>
+      </p>
+
+      <div className="intro-wrap">
+        <div className="intro-collapse"><div className="intro-inner">
+          <p className="lead">
+            I&rsquo;m a software developer with experience across real estate, rental
+            operations, Airbnb hosting, app development, and research. I like building
+            practical software around problems I understand firsthand.
+          </p>
+        </div></div>
+        <button
+          className="intro-toggle"
+          type="button"
+          aria-expanded={introOpen}
+          aria-label={introOpen ? 'Collapse intro' : 'Expand intro'}
+          onClick={() => setIntroOpen((v) => !v)}
+        >
+          <span className="chev">&#9662;</span>
+        </button>
+      </div>
+
+      <nav className="sitenav" aria-label="Sections">
+        {NAV.map((item, i) => (
+          <span key={item.to}>
+            <NavLink to={item.to}>{item.label}</NavLink>
+            {i < NAV.length - 1 && <span className="sep">·</span>}
+          </span>
+        ))}
+      </nav>
+    </header>
+  )
+}
