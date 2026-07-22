@@ -57,9 +57,9 @@ export default function SiteHeader({ defaultIntroOpen = false, startHere = false
       <div className="intro-wrap">
         <div className="intro-collapse"><div className="intro-inner">
           <p className="lead">
-            I&rsquo;m a software developer with experience across real estate, rental
-            operations, Airbnb hosting, app development, and research. I like building
-            practical software around problems I understand firsthand.
+            I&rsquo;m a software developer who likes building practical software around real
+            problems &mdash; full-stack apps, backends, and the systems that hold them
+            together, across app development and applied research.
           </p>
         </div></div>
         <button
