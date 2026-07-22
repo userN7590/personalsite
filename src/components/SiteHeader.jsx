@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { useResume } from './ResumeViewer'
 
 const RESUME = '/assets/Filip-Stopyra-Resume.pdf'
 
@@ -7,8 +8,6 @@ const NAV = [
   { to: '/projects', label: 'projects' },
   { to: '/experience', label: 'experience' },
   { to: '/changelog', label: 'changelog' },
-  { to: '/collections', label: 'collections' },
-  { to: '/contact', label: 'contact' },
 ]
 
 // Heritage flags (Polish + American) — flags only, no text
@@ -39,8 +38,9 @@ function Flags() {
   )
 }
 
-export default function SiteHeader({ defaultIntroOpen = false }) {
+export default function SiteHeader({ defaultIntroOpen = false, startHere = false }) {
   const [introOpen, setIntroOpen] = useState(defaultIntroOpen)
+  const openResume = useResume()
 
   return (
     <header className={`topid${introOpen ? '' : ' intro-closed'}`}>
@@ -51,7 +51,7 @@ export default function SiteHeader({ defaultIntroOpen = false }) {
       <p className="toplinks">
         <a href="https://github.com/userN7590">github</a> ·{' '}
         <a href="https://www.linkedin.com/in/filipstopyra">linkedin</a> ·{' '}
-        <a href={RESUME}>resume (pdf)</a>
+        <a href={RESUME} onClick={openResume}>resume (pdf)</a>
       </p>
 
       <div className="intro-wrap">
@@ -75,8 +75,18 @@ export default function SiteHeader({ defaultIntroOpen = false }) {
 
       <nav className="sitenav" aria-label="Sections">
         {NAV.map((item, i) => (
-          <span key={item.to}>
+          <span key={item.to} className={item.to === '/projects' ? 'nav-projects' : undefined}>
             <NavLink to={item.to}>{item.label}</NavLink>
+            {startHere && item.to === '/projects' && (
+              <span className="start-here" aria-hidden="true">
+                <svg className="sh-arrow" width="26" height="30" viewBox="0 0 26 30" fill="none"
+                     stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M13 29 C 13 20, 10.5 10, 13 2.5" />
+                  <path d="M8 8 L 13 2 L 18 8" />
+                </svg>
+                <span className="sh-label">start here</span>
+              </span>
+            )}
             {i < NAV.length - 1 && <span className="sep">·</span>}
           </span>
         ))}

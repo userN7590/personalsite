@@ -1,5 +1,18 @@
 const ENTRIES = [
   {
+    date: 'July 18, 2026',
+    proj: 'Portfolio',
+    title: 'Case-study overhaul',
+    items: [
+      'Rewrote the Simple Rents and WTM case studies to match the real products and stacks',
+      'Split the Minecraft page into servers and expandable plugin write-ups (Jackpot, BlitzEnchants, SmartSpawnerNoEXP)',
+      'Added server histories with logos — Blitz Raids, Avalon, Apollo Realms, and more',
+      'Reframed the AIRE page around the NSF-funded OH-SCIPE program, with press coverage',
+      'Added an in-site resume viewer with open-in-tab and download',
+      'Full mobile pass across every page; retired the contact and collections pages',
+    ],
+  },
+  {
     date: 'June 11, 2026',
     proj: 'WTM',
     title: 'Landing page & early growth',
@@ -34,7 +47,7 @@ const ENTRIES = [
   },
   {
     date: 'June 7, 2026',
-    proj: 'RentalCRM',
+    proj: 'Simple Rents',
     title: 'Planning & architecture',
     items: [
       'Defined property and tenant data model',
@@ -59,7 +72,7 @@ const ENTRIES = [
 export default function Changelog() {
   return (
     <>
-      <h1 className="page-title"><span className="num">03</span><span className="t">Changelog</span></h1>
+      <h1 className="page-title"><span className="t">Changelog</span></h1>
       <p className="page-sub">Recent work, releases, experiments, and progress across projects.</p>
 
       <section className="changelog">

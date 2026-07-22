@@ -1,7 +1,7 @@
 export default function Experience() {
   return (
     <>
-      <h1 className="page-title"><span className="num">02</span><span className="t">Experience</span></h1>
+      <h1 className="page-title"><span className="t">Experience</span></h1>
 
       <section>
         <div className="xp">
