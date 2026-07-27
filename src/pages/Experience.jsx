@@ -5,9 +5,9 @@ export default function Experience() {
 
       <section>
         <div className="xp">
-          <span className="when">Nov 2025 — present</span>
+          <span className="when">May 2025 — Aug 2025</span>
           <div className="role">Machine Learning Intern</div>
-          <div className="org">Forte · Cleveland</div>
+          <div className="org">Ohio Supercomputer Center</div>
           <ul>
             <li>Build end-to-end ML workflows &mdash; ingestion, transformation, modeling, evaluation.</li>
             <li>Use hypothesis testing and statistical analysis to validate how models actually behave.</li>
@@ -16,9 +16,9 @@ export default function Experience() {
         </div>
 
         <div className="xp">
-          <span className="when">May 2025 — Aug 2025</span>
-          <div className="role">Founder &amp; Developer</div>
-          <div className="org">WordLoot · independent project</div>
+          <span className="when">Nov 2025 — present</span>
+          <div className="role">Founder &amp; Full-Stack Engineer</div>
+          <div className="org">WordLoot</div>
           <ul>
             <li>Designed prediction and outcome-evaluation systems for a probabilistic game environment.</li>
             <li>Analyzed user-interaction and event data to drive scoring and weighting logic.</li>
