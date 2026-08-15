@@ -27,13 +27,14 @@ export default function Experience() {
         </div>
 
         <div className="xp">
-          <span className="when">ongoing</span>
-          <div className="role">Airbnb Host &amp; Operations Manager</div>
-          <div className="org">Short-term rentals · 5.0&#9733; rating</div>
+          <span className="when">May 2022 — present</span>
+          <div className="role">Operations &amp; Software Engineer</div>
+          <div className="org">AFBS Investments</div>
           <ul>
-            <li>Run guest operations end-to-end &mdash; communication, logistics, issue resolution.</li>
-            <li>Hold a consistent 5.0&#9733; rating through structured messaging and fast response.</li>
-            <li>Built backend processes for scheduling, cleaning coordination, and pricing.</li>
+            <li>Build and maintain internal software for a family-owned rental business, including Simple Rents for a live portfolio of 31 units and 29 active tenants.</li>
+            <li>Replaced the spreadsheets used for leases, tenants, maintenance, finances, and deadlines, drawing on several years working directly in day-to-day operations.</li>
+            <li>Architected a serverless AWS backend with API Gateway, Lambda, Cognito role-based authorization, RDS PostgreSQL through Prisma, and per-account data isolation.</li>
+            <li>Automated recurring jobs, notifications, storage, and monitoring with EventBridge, SES, S3, and CloudWatch while gathering requirements from daily users.</li>
           </ul>
         </div>
 
