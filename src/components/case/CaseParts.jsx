@@ -8,9 +8,9 @@ export function Backlink() {
 
 export function Section({ num, title, children }) {
   return (
-    <section className="cs">
+    <section className="cs rule">
       <h2 className="cs-h"><span className="cs-num">{num}</span><span className="cs-t">{title}</span></h2>
-      {children}
+      <div className="cs-body">{children}</div>
     </section>
   )
 }
@@ -37,7 +37,8 @@ export function Tradeoff({ q, children }) {
 export function Ent({ name, fields }) {
   return (
     <div className="ent">
-      <div className="ent-h">{name}</div>
+      {/* allow long snake_case table names to wrap after an underscore, not mid-word */}
+      <div className="ent-h">{name.split('_').map((part, i) => <span key={i}>{i > 0 && <>_<wbr /></>}{part}</span>)}</div>
       <ul>
         {fields.map(([fld, ty, key], i) => (
           <li className={key ? 'key' : undefined} key={i}>
@@ -52,7 +53,7 @@ export function Ent({ name, fields }) {
 // prev / next: { to, label, lbl }
 export function CaseNav({ prev, next }) {
   return (
-    <nav className="casenav" aria-label="More projects">
+    <nav className="casenav rule" aria-label="More projects">
       {prev && <Link className="prev" to={prev.to}><span className="lbl">{prev.lbl}</span>{prev.label}</Link>}
       {next && <Link className="next" to={next.to}><span className="lbl">{next.lbl}</span>{next.label}</Link>}
     </nav>

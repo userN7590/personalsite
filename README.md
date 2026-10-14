@@ -1,7 +1,7 @@
 # Filip Stopyra — personal site
 
-A calm, content-first personal site (Vite + React). Pages: Home, Projects,
-Experience, Changelog — plus a full engineering **case study** for each project.
+A calm, content-first personal site (Vite + React). Pages: Home and Projects,
+plus a full engineering **case study** for each project.
 
 ## Develop
 
@@ -25,10 +25,12 @@ client-side routing works on refresh/deep links.
 
 ## Structure
 
-- `src/pages/Projects.jsx` — categorized project index (cards → case studies).
-- `src/pages/cases/*` — the five case studies: WordLoot, WTM, Simple Rents (`/projects/rentalcrm`), AIRE (`/projects/aire`), Minecraft.
-- `src/components/` — shared chrome: `SiteHeader`, `Footer`, `Layout`, `Carousel`, `ResumeViewer` (in-site PDF overlay), `ImageSlot` (screenshot placeholder), `case/CaseParts` (Section/Challenge/Tradeoff/Ent/CaseNav).
-- Theme follows the visitor's system light/dark preference (no toggle, no JS theme state).
+- `src/pages/Projects.jsx` — categorized project index (cards → case studies), with an "on this page" section guide in the header. Products & Apps is folded: the first row shows, the second fades out, the rest sits behind "Show all" (remembered for the tab's session).
+- `src/pages/cases/*` — project pages, in index order: REBILT (`/projects/rebilt`), WordLoot, Stack Stats (`/projects/stack-stats`), WTM, Simple Rents (`/projects/simple-rents`, old `/projects/rentalcrm` redirects), AIRE (`/projects/aire`), Minecraft. Each page's prev/next links follow that order.
+- `src/components/` — shared chrome: `SiteHeader`, `Footer`, `Layout`, `Carousel`, `ImageSlot` (screenshot placeholder), `case/CaseParts` (Section/Challenge/Tradeoff/Ent/CaseNav).
+- `src/components/DotLogo.jsx` — the home page's interactive dot-matrix project logos. Marks are sampled from the white silhouettes in `public/assets/dots/` (tone is baked into their alpha); add a project by adding a silhouette there and an entry to `LOGOS`.
+- `src/components/MiniGolf.jsx` — the desktop-only mini-golf easter egg: a glowing ball in the page margin opens a window with a freshly generated course every hole. `src/lib/golfCourse.js` generates courses from a seed (terrain, fairway, green, sand dunes, ponds or a creek with a bridge, trees) and rejects any the ball can't finish; `src/lib/golfDraw.js` draws them.
+- Dark only. Design tokens live at the top of `src/site.css`; the page sits between two full-height rails (`.frame`), and `.rule` draws a full-bleed hairline with ring markers where it crosses them.
 
 ## Assets & placeholders
 

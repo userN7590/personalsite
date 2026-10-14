@@ -122,7 +122,7 @@ export default function WTM() {
         </Section>
 
         <CaseNav
-          prev={{ to: '/projects/wordloot', lbl: 'Previous', label: <>&larr; WordLoot</> }}
+          prev={{ to: '/projects/stack-stats', lbl: 'Previous', label: <>&larr; Stack Stats</> }}
           next={{ to: '/projects/simple-rents', lbl: 'Next project', label: <>Simple Rents &rarr;</> }}
         />
       </article>

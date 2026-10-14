@@ -3,7 +3,8 @@ import { useState } from 'react'
 // Index-based slide track (React port of the design's [data-carousel]).
 // `slides` is an array of { node, caption }.
 // `variant="phone"` renders a portrait, phone-shaped frame for mobile screenshots
-// so a vertical image fills it edge-to-edge (no pillarbox bars).
+// so a vertical image fills it edge-to-edge (no pillarbox bars); `variant="wide"`
+// is a 16:10 frame for desktop browser screenshots.
 export default function Carousel({ slides, variant }) {
   const [i, setI] = useState(0)
   const count = slides.length
@@ -17,7 +18,7 @@ export default function Carousel({ slides, variant }) {
 
   return (
     <>
-      <div className={`carousel${variant === 'phone' ? ' phone' : ''}${solo ? ' solo' : ''}`}>
+      <div className={`carousel${variant ? ` ${variant}` : ''}${variant === 'phone' ? '' : ' ticks'}${solo ? ' solo' : ''}`}>
         <div className="carousel-viewport">
           <div className="carousel-track" style={{ transform: `translateX(${-i * 100}%)` }}>
             {slides.map((s, k) => (

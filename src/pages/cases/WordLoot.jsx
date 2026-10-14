@@ -142,8 +142,8 @@ export default function WordLoot() {
         </Section>
 
         <CaseNav
-          prev={{ to: '/projects', lbl: 'Back to', label: 'All projects' }}
-          next={{ to: '/projects/wtm', lbl: 'Next project', label: <>What&rsquo;s The Move &rarr;</> }}
+          prev={{ to: '/projects/rebilt', lbl: 'Previous', label: <>&larr; REBILT</> }}
+          next={{ to: '/projects/stack-stats', lbl: 'Next project', label: <>Stack Stats &rarr;</> }}
         />
       </article>
     </>
